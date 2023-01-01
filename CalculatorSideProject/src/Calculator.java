@@ -6,7 +6,7 @@ public class Calculator {
 		//Test comment.
 		int x = 2 + 2;
 		int y = x * 2;
-		System.out.println(y);
+		System.out.println(y+"<-Value of y\n"+x+"<-Value of x");
 	}
 
 }
