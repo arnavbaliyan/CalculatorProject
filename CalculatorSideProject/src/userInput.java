@@ -4,7 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class userInput extends JFrame {
+public class userInput extends JFrame implements ActionListener 
+{
 
 //private JFrame window;
 private JButton calculate;
@@ -14,16 +15,24 @@ private JLabel loanTerm;
 private JLabel interestRate;
 private JLabel numberOfMonths;
 private Container c;
-Font font = new Font(Font.SANS_SERIF,  Font.BOLD, 25);
+private JTextField DPInput;
+private JTextField LAInput;
+private JTextField LTInput;
+private JTextField IRInput;
+private JTextField NOMInput;
 
-public userInput() {
+public userInput() 
+{
 super("Loan Calculator");
-initComponents();
+initWindowComponents();
 setSize(500,500);
 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
-private void initComponents() {
 
+private void initWindowComponents() 
+{
+
+Font font = new Font(Font.SANS_SERIF,  Font.BOLD, 25);
 c = this.getContentPane();
 c.setLayout(null);
 
@@ -31,6 +40,8 @@ calculate = new JButton("Calculate");
 calculate.setSize(100,50);
 calculate.setLocation(195,375);
 c.add(calculate);
+calculate.addActionListener(this);
+
 
 downPayment = new JLabel("Down Payment");
 downPayment.setSize(200,100);
@@ -55,41 +66,50 @@ interestRate.setLocation(0,180);
 interestRate.setFont(font);
 c.add(interestRate);
 
-numberOfMonths = new JLabel("Interest Rate");
+numberOfMonths = new JLabel("Months");
 numberOfMonths.setSize(200,100);
 numberOfMonths.setLocation(0,240);
 numberOfMonths.setFont(font);
 c.add(numberOfMonths);
 
 //Text field box for Down Payment input
-JTextField DPInput = new JTextField(20);
+DPInput = new JTextField(20);
 DPInput.setBounds(260,40,165,25);
 c.add(DPInput);
 
 // Text field box for Loan Amount input
-JTextField LAInput = new JTextField(20);
+LAInput = new JTextField(20);
 LAInput.setBounds(260,100,165,25);
 c.add(LAInput);
 
 //Text field for Loan Term input
-JTextField LTInput = new JTextField(20);
+LTInput = new JTextField(20);
 LTInput.setBounds(260,160,165,25);
 c.add(LTInput);
 
 //Text field for Interest Rate input
-JTextField IRInput = new JTextField(20);
+IRInput = new JTextField(20);
 IRInput.setBounds(260,220,165,25);
 c.add(IRInput);
 
 //Text field for Number of Months Input.
-JTextField NOMInput = new JTextField(20);
+NOMInput = new JTextField(20);
 NOMInput.setBounds(260,280,165,25);
 c.add(NOMInput);
 }
 
-public static void main(String[] args) {
+public void actionPerformed(ActionEvent evt) 
+{
+	int downPayment = Integer.parseInt(DPInput.getText());
+	double interestRate = Double.parseDouble(IRInput.getText());
+	int timePeriod= Integer.parseInt(NOMInput.getText());
+	System.out.println("Payment: "+Calculator.monthlyMortgagePayment(downPayment,interestRate,timePeriod));
+}
+
+public static void main(String[] args) 
+{
 new userInput().setVisible(true);
-	}
+}
 
 }
 
