@@ -1,5 +1,0 @@
-./src/*
-../*
-/bin/
-!.*
-!./src/Calculator.java
