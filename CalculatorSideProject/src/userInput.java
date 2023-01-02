@@ -1,5 +1,5 @@
 //package main;
-
+//re-commit
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -93,7 +93,6 @@ new userInput().setVisible(true);
 
 }
 
-// previous code.
 /*
 public class userInput extends JFrame
 {
