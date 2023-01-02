@@ -89,9 +89,11 @@ c.add(NOMInput);
 
 public static void main(String[] args) {
 new userInput().setVisible(true);
-}
+	}
+
 }
 
+// previous code.
 /*
 public class userInput extends JFrame
 {
