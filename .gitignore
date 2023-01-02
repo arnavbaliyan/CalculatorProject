@@ -1,4 +1,4 @@
-*
-!.gitignore
-!*.java
-!README.md
+*.txt
+*.class
+*.sh
+*Makefile
