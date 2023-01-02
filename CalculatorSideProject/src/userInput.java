@@ -97,8 +97,14 @@ new userInput().setVisible(true);
 /*
 public class userInput extends JFrame
 {
+<<<<<<< HEAD
 //private int mortgagePercentage;
 //private int minimumScoreRequirement;
+=======
+private static int downPayment;
+private static double interestRate;
+private static int timePeriod;
+>>>>>>> branch 'main' of https://github.com/arnavbaliyan/CalculatorProject.git
 
 public userInput()
 {
@@ -109,10 +115,23 @@ public userInput()
 }
 public void initWindow()
 {
-	JTextField textField = new JTextField("This is a text", 20);
+	JTextField textField = new JTextField(20);
 	setLayout(new FlowLayout());
 	add(textField);
 }
+public static int getDownPayment()
+{
+	return downPayment;
+}
+public static double getInterestRate()
+{
+	return interestRate;
+}
+public static int getTimePeriod()
+{
+	return timePeriod;
+}
+
 public static void main(String[] args)
 {
 	new userInput().setVisible(true);
