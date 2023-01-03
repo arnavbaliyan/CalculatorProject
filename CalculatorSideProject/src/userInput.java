@@ -1,5 +1,5 @@
 //package main;
-//re-commit
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -7,19 +7,20 @@ import java.awt.event.*;
 public class userInput extends JFrame implements ActionListener 
 {
 
-//private JFrame window;
 private JButton calculate;
 private JLabel downPayment;
 private JLabel loanAmount;
 private JLabel loanTerm;
 private JLabel interestRate;
 private JLabel numberOfMonths;
+private JLabel payment;
 private Container c;
 private JTextField DPInput;
 private JTextField LAInput;
 private JTextField LTInput;
 private JTextField IRInput;
 private JTextField NOMInput;
+private JTextField PaymentOutput;
 
 public userInput() 
 {
@@ -32,13 +33,13 @@ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 private void initWindowComponents() 
 {
 
-Font font = new Font(Font.SANS_SERIF,  Font.BOLD, 25);
+Font font = new Font(Font.SANS_SERIF,  Font.BOLD, 21);
 c = this.getContentPane();
 c.setLayout(null);
 
 calculate = new JButton("Calculate");
 calculate.setSize(100,50);
-calculate.setLocation(195,375);
+calculate.setLocation(195,390);
 c.add(calculate);
 calculate.addActionListener(this);
 
@@ -72,8 +73,14 @@ numberOfMonths.setLocation(0,240);
 numberOfMonths.setFont(font);
 c.add(numberOfMonths);
 
+payment = new JLabel("Payment:");
+payment.setSize(100,100);
+payment.setLocation(100,300);
+payment.setFont(font);
+c.add(payment);
+
 //Text field box for Down Payment input
-DPInput = new JTextField(20);
+ DPInput = new JTextField(20);
 DPInput.setBounds(260,40,165,25);
 c.add(DPInput);
 
@@ -96,6 +103,12 @@ c.add(IRInput);
 NOMInput = new JTextField(20);
 NOMInput.setBounds(260,280,165,25);
 c.add(NOMInput);
+
+PaymentOutput = new JTextField(20);
+PaymentOutput.setBounds(197,340,165,25);
+PaymentOutput.setEditable(false);
+c.add(PaymentOutput);
+
 }
 
 public void actionPerformed(ActionEvent evt) 
@@ -107,53 +120,10 @@ public void actionPerformed(ActionEvent evt)
 }
 
 public static void main(String[] args) 
-{
+{	
 new userInput().setVisible(true);
 }
 
+
 }
 
-/*
-public class userInput extends JFrame
-{
-<<<<<<< HEAD
-//private int mortgagePercentage;
-//private int minimumScoreRequirement;
-=======
-private static int downPayment;
-private static double interestRate;
-private static int timePeriod;
->>>>>>> branch 'main' of https://github.com/arnavbaliyan/CalculatorProject.git
-
-public userInput()
-{
-	super("Mortgage Calculator");
-	initWindow();
-	setSize(500, 500);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}
-public void initWindow()
-{
-	JTextField textField = new JTextField(20);
-	setLayout(new FlowLayout());
-	add(textField);
-}
-public static int getDownPayment()
-{
-	return downPayment;
-}
-public static double getInterestRate()
-{
-	return interestRate;
-}
-public static int getTimePeriod()
-{
-	return timePeriod;
-}
-
-public static void main(String[] args)
-{
-	new userInput().setVisible(true);
-}
-}
-*/
