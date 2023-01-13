@@ -6,7 +6,7 @@ public class Calculator{
 	  interestRate = interestRate/(12*100);
 	  timePeriod = timePeriod * 12;
   	  double m= (downPayment * interestRate) / (1 - Math.pow(1 + interestRate, -timePeriod));
-          System.out.println(downPayment+"\n"+interestRate+"\n"+timePeriod);
+          //System.out.println(downPayment+"\n"+interestRate+"\n"+timePeriod);
   	  return Math.round(m* 100) / 100.0;
 	}
 	public static void main(String[] args){

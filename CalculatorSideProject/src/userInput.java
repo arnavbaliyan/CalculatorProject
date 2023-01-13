@@ -35,18 +35,6 @@ public class userInput extends JFrame implements ActionListener{
 	  calculate.setLocation(195,390);
 	  c.add(calculate);
 	  calculate.addActionListener(this);
-	 /* 
-	  JLabel loanAmount = new JLabel("Loan Amount");
-	  loanAmount.setSize(200,100);
-	  loanAmount.setLocation(0,60);
-	  loanAmount.setFont(font);
-	  c.add(loanAmount);
-	  
-	  JLabel loanTerm = new JLabel("Loan Term");
-	  loanTerm.setSize(200,100);
-	  loanTerm.setLocation(0,120);
-	  loanTerm.setFont(font);
-	  c.add(loanTerm);*/
 	  //"Down Payment" label 
 	  JLabel downPayment = new JLabel("Down Payment");
 	  downPayment.setSize(200,100);
@@ -56,14 +44,6 @@ public class userInput extends JFrame implements ActionListener{
 	  DPInput = new JTextField(20);
 	  DPInput.setBounds(260,40,165,25);
 	  c.add(DPInput);
-	  //Text field box for Loan Amount input
-	  /*LAInput = new JTextField(20);
-	  LAInput.setBounds(260,100,165,25);
-	  c.add(LAInput);*/
-	  //Text field for Loan Term input
-	  /*LTInput = new JTextField(20);
-	  LTInput.setBounds(260,160,165,25);
-	  c.add(LTInput);*/
 	  //"Interest Rate" label 
 	  JLabel interestRate = new JLabel("Interest Rate");
 	  interestRate.setSize(200,100);
@@ -104,6 +84,11 @@ public class userInput extends JFrame implements ActionListener{
 	    int downPayment = Integer.parseInt(DPInput.getText());
 	    double interestRate = Double.parseDouble(IRInput.getText());
 	    int timePeriod= Integer.parseInt(NOMInput.getText());
+	    if(downPayment<=0
+	       ||interestRate<=0.0
+	       ||timePeriod<=0){
+	      throw new NumberFormatException();
+	    }
 	    PaymentOutput.setText(""+Calculator.monthlyMortgagePayment(downPayment,interestRate,timePeriod));
 	  }catch (NumberFormatException nfe){
 	    PaymentOutput.setText("INVALID INPUT, TRY AGAIN");
