@@ -29,7 +29,7 @@ public class userInput extends JFrame implements ActionListener{
 	  Font font = new Font(Font.SANS_SERIF, Font.BOLD, 21);
 	  Container c = this.getContentPane();
 	  c.setLayout(null);
-	  
+	  //Button to calculate monthly payment 
 	  JButton calculate = new JButton("Calculate");
 	  calculate.setSize(100,50);
 	  calculate.setLocation(195,390);
