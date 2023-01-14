@@ -36,17 +36,17 @@ public class userInput extends JFrame implements ActionListener{
 	  calculate.setLocation(195,360);
 	  c.add(calculate);
 	  calculate.addActionListener(this);
-	  
-	  //"Down Payment" label 
-	  JLabel downPayment = new JLabel("Down Payment");
+	  int ySpacing=40; 
+	  //"Amount Borrowed" label 
+	  JLabel downPayment = new JLabel("Amount Borrowed");
 	  downPayment.setSize(200,100);
-	  downPayment.setLocation(5, 0);
+	  downPayment.setLocation(5,0);
 	  downPayment.setFont(font);
 	  c.add(downPayment);
-	  
+	 
 	  //Text field box for Down Payment input
 	  DPInput = new JTextField(20);
-	  DPInput.setBounds(260,40,165,25);
+	  DPInput.setBounds(260,ySpacing,165,25);
 	  c.add(DPInput);
 	  
 	  //"Interest Rate" label 
@@ -58,11 +58,11 @@ public class userInput extends JFrame implements ActionListener{
 	  
 	  //Text field for Interest Rate input
 	  IRInput = new JTextField(20);
-	  IRInput.setBounds(260,128,165,25);
+	  IRInput.setBounds(260,ySpacing+88,165,25);
 	  c.add(IRInput);
 	  
-	  //"Months" label 
-	  JLabel numberOfMonths = new JLabel("Months");
+	  //"Years" label 
+	  JLabel numberOfMonths = new JLabel("Years");
 	  numberOfMonths.setSize(200,100);
 	  numberOfMonths.setLocation(5,180);
 	  numberOfMonths.setFont(font);
