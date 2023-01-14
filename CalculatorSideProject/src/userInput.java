@@ -19,7 +19,7 @@ public class userInput extends JFrame implements ActionListener{
 	public userInput(){ 
 	  super("Loan Calculator");
 	  initWindowComponents();
-	  setSize(500,500);
+	  setSize(470,470);
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	/*
