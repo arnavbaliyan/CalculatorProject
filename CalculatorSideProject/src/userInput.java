@@ -23,61 +23,71 @@ public class userInput extends JFrame implements ActionListener{
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	/*
- 	 * Initializes textboxes and buttons in the Calculator Window
+ 	 * Initializes text boxes and buttons in the Calculator Window
 	 */
 	private void initWindowComponents(){ 
 	  Font font = new Font(Font.SANS_SERIF, Font.BOLD, 21);
 	  Container c = this.getContentPane();
 	  c.setLayout(null);
+	  
 	  //Button to calculate monthly payment 
 	  JButton calculate = new JButton("Calculate");
 	  calculate.setSize(100,50);
-	  calculate.setLocation(195,390);
+	  calculate.setLocation(195,360);
 	  c.add(calculate);
 	  calculate.addActionListener(this);
+	  
 	  //"Down Payment" label 
 	  JLabel downPayment = new JLabel("Down Payment");
 	  downPayment.setSize(200,100);
+	  downPayment.setLocation(5, 0);
 	  downPayment.setFont(font);
 	  c.add(downPayment);
+	  
 	  //Text field box for Down Payment input
 	  DPInput = new JTextField(20);
 	  DPInput.setBounds(260,40,165,25);
 	  c.add(DPInput);
+	  
 	  //"Interest Rate" label 
 	  JLabel interestRate = new JLabel("Interest Rate");
 	  interestRate.setSize(200,100);
-	  interestRate.setLocation(0,180);
+	  interestRate.setLocation(5,90);
 	  interestRate.setFont(font);
 	  c.add(interestRate);
+	  
 	  //Text field for Interest Rate input
 	  IRInput = new JTextField(20);
-	  IRInput.setBounds(260,220,165,25);
+	  IRInput.setBounds(260,128,165,25);
 	  c.add(IRInput);
+	  
 	  //"Months" label 
 	  JLabel numberOfMonths = new JLabel("Months");
 	  numberOfMonths.setSize(200,100);
-	  numberOfMonths.setLocation(0,240);
+	  numberOfMonths.setLocation(5,180);
 	  numberOfMonths.setFont(font);
 	  c.add(numberOfMonths);
+	  
 	  //Text field for Number of Months Input
 	  NOMInput = new JTextField(20);
-	  NOMInput.setBounds(260,280,165,25);
+	  NOMInput.setBounds(260,216,165,25);
 	  c.add(NOMInput);
+	  
 	  //"Payment" label 
 	  JLabel payment = new JLabel("Payment:");
 	  payment.setSize(100,100);
-	  payment.setLocation(100,300);
+	  payment.setLocation(100,250);
 	  payment.setFont(font);
 	  c.add(payment);
+	  
 	  //Text field to display monthly payment
-	  PaymentOutput = new JTextField(20);
-	  PaymentOutput.setBounds(197,340,165,25);
+	  PaymentOutput = new JTextField(35);
+	  PaymentOutput.setBounds(197,290,165,25);
 	  PaymentOutput.setEditable(false);
 	  c.add(PaymentOutput);
 	}
 	/*
- 	* Action event for when the calulate button is clicked
+ 	* Action event for when the calculate button is clicked
  	*/
 	public void actionPerformed(ActionEvent evt){ 
 	  try{
