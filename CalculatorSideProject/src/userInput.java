@@ -18,74 +18,78 @@ public class userInput extends JFrame implements ActionListener{
 	 */
 	public userInput(){ 
 	  super("Loan Calculator");
-	  initWindowComponents();
 	  setSize(470,470);
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  //setDefaultLookAndFeelDecorated(true);
+	  initWindowComponents();
+	  setLayout(null);
+	  setVisible(true);
 	}
 	/*
  	 * Initializes text boxes and buttons in the Calculator Window
 	 */
 	private void initWindowComponents(){ 
 	  Font font = new Font(Font.SANS_SERIF, Font.BOLD, 21);
-	  Container c = this.getContentPane();
-	  c.setLayout(null);
+	  //Container c = this.getContentPane();
+	  //c.setLayout(null);
+	  //JFrame frame = new JFrame
 	  
 	  //Button to calculate monthly payment 
-	  JButton calculate = new JButton("Calculate");
+	  /*JButton calculate = new JButton("Calculate");
 	  calculate.setSize(100,50);
 	  calculate.setLocation(195,360);
 	  c.add(calculate);
-	  calculate.addActionListener(this);
+	  calculate.addActionListener(this);*/
+	  int xSpacing=260;
 	  int ySpacing=40; 
+	  int boxWidth=150;
+	  int boxHeight=25;
 	  //"Amount Borrowed" label 
-	  JLabel downPayment = new JLabel("Amount Borrowed");
-	  //downPayment.setSize(200,100);
-	  //downPayment.setLocation(5,0);
-	  downPayment.setBounds(0,ySpacing-40,200,100);
+	  /*JLabel downPayment = new JLabel("Amount Borrowed");
+	  downPayment.setBounds(0,0,200,100);
 	  downPayment.setFont(font);
-	  c.add(downPayment);
-	 
-	  //Text field box for Down Payment input
-	  DPInput = new JTextField(20);
-	  DPInput.setBounds(260,ySpacing,165,25);
-	  c.add(DPInput);
-	  
+	  c.add(downPayment);*/
+	  //Text field box for Amount Borrowed input
+	  DPInput = new JTextField();
+	  //DPInput.setLocation(200,200);
+	  DPInput.setBounds(xSpacing,ySpacing,boxWidth,boxHeight);
+	  //c.add(DPInput);
+	  add(DPInput);
+/*
 	  //"Interest Rate" label 
 	  JLabel interestRate = new JLabel("Interest Rate");
-	  interestRate.setSize(200,100);
-	  interestRate.setLocation(5,90);
+	  interestRate.setBounds(0,ySpacing*2,200,100);
 	  interestRate.setFont(font);
 	  c.add(interestRate);
-	  
 	  //Text field for Interest Rate input
 	  IRInput = new JTextField(20);
-	  IRInput.setBounds(260,ySpacing+88,165,25);
+	  IRInput.setBounds(xSpacing,ySpacing*3,165,25);
 	  c.add(IRInput);
-	  
+
 	  //"Years" label 
 	  JLabel numberOfMonths = new JLabel("Years");
-	  numberOfMonths.setSize(200,100);
-	  numberOfMonths.setLocation(5,180);
+	  numberOfMonths.setBounds(0,ySpacing*4,200,100);
 	  numberOfMonths.setFont(font);
 	  c.add(numberOfMonths);
-	  
-	  //Text field for Number of Months Input
+	  //Text field for Number of Years input
 	  NOMInput = new JTextField(20);
-	  NOMInput.setBounds(260,216,165,25);
+	  NOMInput.setBounds(xSpacing,ySpacing*5,165,25);
 	  c.add(NOMInput);
 	  
 	  //"Payment" label 
 	  JLabel payment = new JLabel("Payment:");
-	  payment.setSize(100,100);
-	  payment.setLocation(100,250);
+	  //payment.setSize(100,100);
+	  //payment.setLocation(100,250);
+	  payment.setBounds(0,ySpacing*6,200,100);
 	  payment.setFont(font);
 	  c.add(payment);
 	  
 	  //Text field to display monthly payment
-	  PaymentOutput = new JTextField(35);
-	  PaymentOutput.setBounds(197,290,165,25);
+	  PaymentOutput = new JTextField(10);
+	  PaymentOutput.setBounds(xSpacing,ySpacing*7,165,25);
 	  PaymentOutput.setEditable(false);
 	  c.add(PaymentOutput);
+	  */
 	}
 	/*
  	* Action event for when the calculate button is clicked
@@ -107,6 +111,7 @@ public class userInput extends JFrame implements ActionListener{
 	}
 	//Calculator display is run
 	public static void main(String[] args){ 
-	  new userInput().setVisible(true);
+	  //new userInput().setVisible(true);
+	  new userInput();
 	} 
 }
