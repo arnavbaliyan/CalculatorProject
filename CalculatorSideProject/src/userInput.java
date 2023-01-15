@@ -7,9 +7,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class userInput extends JFrame implements ActionListener{
+  //private static JFrame jFrameDisplay=new JFrame("Mortgage Calculator");
   private JTextField DPInput;
-  private JTextField LAInput;
-  private JTextField LTInput;
+  //private JTextField LAInput;
+  //private JTextField LTInput;
   private JTextField IRInput;
   private JTextField NOMInput;
   private JTextField PaymentOutput;
@@ -17,7 +18,7 @@ public class userInput extends JFrame implements ActionListener{
  	 * Constructor which initializes Calculator Window in GUI
 	 */
 	public userInput(){ 
-	  super("Loan Calculator");
+	  super("Mortgage Calculator");
 	  setSize(470,470);
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  //setDefaultLookAndFeelDecorated(true);
@@ -35,20 +36,22 @@ public class userInput extends JFrame implements ActionListener{
 	  //JFrame frame = new JFrame
 	  
 	  //Button to calculate monthly payment 
-	  /*JButton calculate = new JButton("Calculate");
+	  JButton calculate = new JButton("Calculate");
 	  calculate.setSize(100,50);
 	  calculate.setLocation(195,360);
-	  c.add(calculate);
-	  calculate.addActionListener(this);*/
+	  add(calculate);
+	  calculate.addActionListener(this);
 	  int xSpacing=260;
 	  int ySpacing=40; 
 	  int boxWidth=150;
 	  int boxHeight=25;
 	  //"Amount Borrowed" label 
-	  /*JLabel downPayment = new JLabel("Amount Borrowed");
+	  JLabel downPayment = new JLabel("Amount Borrowed");
+	  //downPayment.setSize(500,1);
+	  //downPayment.setLocation(0,50);
 	  downPayment.setBounds(0,0,200,100);
 	  downPayment.setFont(font);
-	  c.add(downPayment);*/
+	  add(downPayment);
 	  //Text field box for Amount Borrowed input
 	  DPInput = new JTextField();
 	  //DPInput.setLocation(200,200);
@@ -111,7 +114,6 @@ public class userInput extends JFrame implements ActionListener{
 	}
 	//Calculator display is run
 	public static void main(String[] args){ 
-	  //new userInput().setVisible(true);
 	  new userInput();
 	} 
 }
