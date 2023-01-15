@@ -39,8 +39,9 @@ public class userInput extends JFrame implements ActionListener{
 	  int ySpacing=40; 
 	  //"Amount Borrowed" label 
 	  JLabel downPayment = new JLabel("Amount Borrowed");
-	  downPayment.setSize(200,100);
-	  downPayment.setLocation(5,0);
+	  //downPayment.setSize(200,100);
+	  //downPayment.setLocation(5,0);
+	  downPayment.setBounds(0,ySpacing-40,200,100);
 	  downPayment.setFont(font);
 	  c.add(downPayment);
 	 
