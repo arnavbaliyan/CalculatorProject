@@ -1,6 +1,4 @@
 import java.awt.Font;
-//import java.awt.Container;
-import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -9,12 +7,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class userInput extends JFrame implements ActionListener{
   //private static JFrame jFrameDisplay=new JFrame("Mortgage Calculator");
-  private JTextField DPInput;
-  //private JTextField LAInput;
-  //private JTextField LTInput;
+  private JTextField ABInput;
   private JTextField IRInput;
-  private JTextField NOMInput;
-  private JTextField PaymentOutput;
+  private JTextField NOYInput;
+  private JTextField paymentOutput;
 	/*
  	 * Constructor which initializes Calculator Window in GUI
 	 */
@@ -31,66 +27,59 @@ public class userInput extends JFrame implements ActionListener{
  	 * Initializes text boxes and buttons in the Calculator Window
 	 */
 	private void initWindowComponents(){ 
-	  Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 15);
+	  Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 30);
 	  Font boldFont = new Font(Font.SANS_SERIF, Font.BOLD, 30);
-
-	  int ySpacing=50; 
-	  int boxWidth=235;
-	  int boxHeight=boldFont.getSize();
-	  Rectangle test = new Rectangle(0,ySpacing+boxHeight,boxWidth,boxHeight);
 
 	  //"Amount Borrowed" label 
 	  JLabel downPayment = new JLabel("Amount Borrowed");
-	  downPayment.setBounds(0,ySpacing,500,boxHeight);
+	  downPayment.setBounds(0,0,500,40);
 	  downPayment.setFont(boldFont);
 	  add(downPayment);
 	  //Text field box for Amount Borrowed input
-	  DPInput = new JTextField();
-	  //DPInput.setBounds(0,ySpacing+boxHeight,235,boxHeight);
-	  DPInput.setBounds(test);
-	  DPInput.setFont(font);
-	  add(DPInput);
+	  ABInput = new JTextField();
+	  ABInput.setBounds(0,40,235,40);
+	  ABInput.setFont(font);
+	  add(ABInput);
 
 	  //"Interest Rate" label 
 	  JLabel interestRate = new JLabel("Interest Rate");
-	  interestRate.setBounds(0,ySpacing*3,500,boxHeight);
+	  interestRate.setBounds(0,90,500,40);
 	  interestRate.setFont(boldFont);
 	  add(interestRate);
 	  //Text field for Interest Rate input
-	  IRInput = new JTextField(20);
-	  IRInput.setBounds(0,ySpacing*3+boxHeight,235,boxHeight);
+	  IRInput = new JTextField();
+	  IRInput.setBounds(0,130,235,40);
+	  IRInput.setFont(font);
 	  add(IRInput);
 
 	  //"Years" label 
 	  JLabel numberOfMonths = new JLabel("Years");
-	  numberOfMonths.setBounds(0,ySpacing*5,500,boxHeight);
+	  numberOfMonths.setBounds(0,180,500,40);
 	  numberOfMonths.setFont(boldFont);
 	  add(numberOfMonths);
 	  //Text field for Number of Years input
-	  NOMInput = new JTextField(20);
-	  NOMInput.setBounds(0,ySpacing*5+boxHeight,235,boxHeight);
-	  add(NOMInput);
+	  NOYInput = new JTextField();
+	  NOYInput.setBounds(0,220,235,40);
+	  NOYInput.setFont(font);
+	  add(NOYInput);
 
 	  //Button to calculate monthly payment 
 	  JButton calculate = new JButton("Calculate");
-	  calculate.setBounds(0,360,100,boxHeight);
+	  calculate.setBounds(0,270,235,50);
 	  add(calculate);
 	  calculate.addActionListener(this);
-/*	  
-	  //"Payment" label 
-	  JLabel payment = new JLabel("Payment:");
-	  //payment.setSize(100,100);
-	  //payment.setLocation(100,250);
-	  payment.setBounds(0,ySpacing*6,200,100);
+ 
+	  //"Monthly Payment" label 
+	  JLabel payment = new JLabel("Monthly Payment:");
+	  payment.setBounds(0,330,500,40);
 	  payment.setFont(boldFont);
-	  c.add(payment);
-	  
+	  add(payment);
 	  //Text field to display monthly payment
-	  PaymentOutput = new JTextField(10);
-	  PaymentOutput.setBounds(xSpacing,ySpacing*7,165,25);
-	  PaymentOutput.setEditable(false);
-	  c.add(PaymentOutput);
-	  */
+	  paymentOutput = new JTextField();
+	  paymentOutput.setBounds(0,380,450,40);
+	  paymentOutput.setEditable(false);
+	  paymentOutput.setFont(font);
+	  add(paymentOutput);
 	  
 	}
 	/*
@@ -98,17 +87,17 @@ public class userInput extends JFrame implements ActionListener{
  	*/
 	public void actionPerformed(ActionEvent evt){ 
 	  try{
-	    int downPayment = Integer.parseInt(DPInput.getText());
+	    int principle = Integer.parseInt(ABInput.getText());
 	    double interestRate = Double.parseDouble(IRInput.getText());
-	    int timePeriod= Integer.parseInt(NOMInput.getText());
-	    if(downPayment<=0
+	    int timePeriod= Integer.parseInt(NOYInput.getText());
+	    if(principle<=0
 	       ||interestRate<=0.0
 	       ||timePeriod<=0){
 	      throw new NumberFormatException();
 	    }
-	    PaymentOutput.setText(""+Calculator.monthlyMortgagePayment(downPayment,interestRate,timePeriod));
+	    paymentOutput.setText(""+Calculator.monthlyMortgagePayment(principle,interestRate,timePeriod));
 	  }catch (NumberFormatException nfe){
-	    PaymentOutput.setText("INVALID INPUT, TRY AGAIN");
+	    paymentOutput.setText("INVALID INPUT, TRY AGAIN");
 	  }
 	}
 	//Calculator display is run
