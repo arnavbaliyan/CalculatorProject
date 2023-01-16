@@ -1,5 +1,6 @@
 import java.awt.Font;
-import java.awt.Container;
+//import java.awt.Container;
+import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -19,7 +20,7 @@ public class userInput extends JFrame implements ActionListener{
 	 */
 	public userInput(){ 
 	  super("Mortgage Calculator");
-	  setSize(470,470);
+	  setSize(500,500);
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  //setDefaultLookAndFeelDecorated(true);
 	  initWindowComponents();
@@ -30,61 +31,58 @@ public class userInput extends JFrame implements ActionListener{
  	 * Initializes text boxes and buttons in the Calculator Window
 	 */
 	private void initWindowComponents(){ 
-	  Font font = new Font(Font.SANS_SERIF, Font.BOLD, 21);
-	  //Container c = this.getContentPane();
-	  //c.setLayout(null);
-	  //JFrame frame = new JFrame
-	  
-	  //Button to calculate monthly payment 
-	  JButton calculate = new JButton("Calculate");
-	  calculate.setSize(100,50);
-	  calculate.setLocation(195,360);
-	  add(calculate);
-	  calculate.addActionListener(this);
-	  int xSpacing=260;
-	  int ySpacing=40; 
-	  int boxWidth=150;
-	  int boxHeight=25;
+	  Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 15);
+	  Font boldFont = new Font(Font.SANS_SERIF, Font.BOLD, 30);
+
+	  int ySpacing=50; 
+	  int boxWidth=235;
+	  int boxHeight=boldFont.getSize();
+	  Rectangle test = new Rectangle(0,ySpacing+boxHeight,boxWidth,boxHeight);
+
 	  //"Amount Borrowed" label 
 	  JLabel downPayment = new JLabel("Amount Borrowed");
-	  //downPayment.setSize(500,1);
-	  //downPayment.setLocation(0,50);
-	  downPayment.setBounds(0,0,200,100);
-	  downPayment.setFont(font);
+	  downPayment.setBounds(0,ySpacing,500,boxHeight);
+	  downPayment.setFont(boldFont);
 	  add(downPayment);
 	  //Text field box for Amount Borrowed input
 	  DPInput = new JTextField();
-	  //DPInput.setLocation(200,200);
-	  DPInput.setBounds(xSpacing,ySpacing,boxWidth,boxHeight);
-	  //c.add(DPInput);
+	  //DPInput.setBounds(0,ySpacing+boxHeight,235,boxHeight);
+	  DPInput.setBounds(test);
+	  DPInput.setFont(font);
 	  add(DPInput);
-/*
+
 	  //"Interest Rate" label 
 	  JLabel interestRate = new JLabel("Interest Rate");
-	  interestRate.setBounds(0,ySpacing*2,200,100);
-	  interestRate.setFont(font);
-	  c.add(interestRate);
+	  interestRate.setBounds(0,ySpacing*3,500,boxHeight);
+	  interestRate.setFont(boldFont);
+	  add(interestRate);
 	  //Text field for Interest Rate input
 	  IRInput = new JTextField(20);
-	  IRInput.setBounds(xSpacing,ySpacing*3,165,25);
-	  c.add(IRInput);
+	  IRInput.setBounds(0,ySpacing*3+boxHeight,235,boxHeight);
+	  add(IRInput);
 
 	  //"Years" label 
 	  JLabel numberOfMonths = new JLabel("Years");
-	  numberOfMonths.setBounds(0,ySpacing*4,200,100);
-	  numberOfMonths.setFont(font);
-	  c.add(numberOfMonths);
+	  numberOfMonths.setBounds(0,ySpacing*5,500,boxHeight);
+	  numberOfMonths.setFont(boldFont);
+	  add(numberOfMonths);
 	  //Text field for Number of Years input
 	  NOMInput = new JTextField(20);
-	  NOMInput.setBounds(xSpacing,ySpacing*5,165,25);
-	  c.add(NOMInput);
-	  
+	  NOMInput.setBounds(0,ySpacing*5+boxHeight,235,boxHeight);
+	  add(NOMInput);
+
+	  //Button to calculate monthly payment 
+	  JButton calculate = new JButton("Calculate");
+	  calculate.setBounds(0,360,100,boxHeight);
+	  add(calculate);
+	  calculate.addActionListener(this);
+/*	  
 	  //"Payment" label 
 	  JLabel payment = new JLabel("Payment:");
 	  //payment.setSize(100,100);
 	  //payment.setLocation(100,250);
 	  payment.setBounds(0,ySpacing*6,200,100);
-	  payment.setFont(font);
+	  payment.setFont(boldFont);
 	  c.add(payment);
 	  
 	  //Text field to display monthly payment
@@ -93,6 +91,7 @@ public class userInput extends JFrame implements ActionListener{
 	  PaymentOutput.setEditable(false);
 	  c.add(PaymentOutput);
 	  */
+	  
 	}
 	/*
  	* Action event for when the calculate button is clicked
