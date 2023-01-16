@@ -6,7 +6,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class userInput extends JFrame implements ActionListener{
-  //private static JFrame jFrameDisplay=new JFrame("Mortgage Calculator");
   private JTextField ABInput;
   private JTextField IRInput;
   private JTextField NOYInput;
@@ -18,23 +17,22 @@ public class userInput extends JFrame implements ActionListener{
 	  super("Mortgage Calculator");
 	  setSize(500,500);
 	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  //setDefaultLookAndFeelDecorated(true);
 	  initWindowComponents();
 	  setLayout(null);
 	  setVisible(true);
 	}
 	/*
- 	 * Initializes text boxes and buttons in the Calculator Window
+ 	 * Initializes text boxes, labels, and buttons in the calculator window
 	 */
 	private void initWindowComponents(){ 
 	  Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 30);
 	  Font boldFont = new Font(Font.SANS_SERIF, Font.BOLD, 30);
 
 	  //"Amount Borrowed" label 
-	  JLabel downPayment = new JLabel("Amount Borrowed");
-	  downPayment.setBounds(0,0,500,40);
-	  downPayment.setFont(boldFont);
-	  add(downPayment);
+	  JLabel principle = new JLabel("Amount Borrowed");
+	  principle.setBounds(0,0,500,40);
+	  principle.setFont(boldFont);
+	  add(principle);
 	  //Text field box for Amount Borrowed input
 	  ABInput = new JTextField();
 	  ABInput.setBounds(0,40,235,40);
@@ -84,6 +82,9 @@ public class userInput extends JFrame implements ActionListener{
 	}
 	/*
  	* Action event for when the calculate button is clicked
+	* Does not allow values to be 0 or less than zero
+	* An exception will also be thrown if values larger than the given
+	* data types are entered
  	*/
 	public void actionPerformed(ActionEvent evt){ 
 	  try{
