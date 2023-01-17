@@ -5,7 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 public class userInput extends JFrame implements ActionListener{
+	
   private JTextField ABInput;
   private JTextField IRInput;
   private JTextField NOYInput;
@@ -33,6 +35,7 @@ public class userInput extends JFrame implements ActionListener{
 	  principle.setBounds(0,0,500,40);
 	  principle.setFont(boldFont);
 	  add(principle);
+	  
 	  //Text field box for Amount Borrowed input
 	  ABInput = new JTextField();
 	  ABInput.setBounds(0,40,235,40);
@@ -44,6 +47,7 @@ public class userInput extends JFrame implements ActionListener{
 	  interestRate.setBounds(0,90,500,40);
 	  interestRate.setFont(boldFont);
 	  add(interestRate);
+	  
 	  //Text field for Interest Rate input
 	  IRInput = new JTextField();
 	  IRInput.setBounds(0,130,235,40);
@@ -55,6 +59,7 @@ public class userInput extends JFrame implements ActionListener{
 	  numberOfMonths.setBounds(0,180,500,40);
 	  numberOfMonths.setFont(boldFont);
 	  add(numberOfMonths);
+	  
 	  //Text field for Number of Years input
 	  NOYInput = new JTextField();
 	  NOYInput.setBounds(0,220,235,40);
@@ -72,6 +77,7 @@ public class userInput extends JFrame implements ActionListener{
 	  payment.setBounds(0,330,500,40);
 	  payment.setFont(boldFont);
 	  add(payment);
+	  
 	  //Text field to display monthly payment
 	  paymentOutput = new JTextField();
 	  paymentOutput.setBounds(0,380,450,40);
